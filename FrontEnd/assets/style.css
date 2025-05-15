@@ -359,4 +359,35 @@ footer nav ul li {
 	color: #000;
 	display: inline-block;
   }
+
+  .filters {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 30px;
+	flex-wrap: wrap;
+  }
+  
+  .filters button {
+	border: 1px solid #1D6154;
+	border-radius: 25px;
+	padding: 8px 20px;
+	background-color: white;
+	color: #1D6154;
+	font-family: 'Syne';
+	font-weight: 700;
+	cursor: pointer;
+	transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .filters button:hover {
+	background-color: #1D6154;
+	color: white;
+  }
+  
+  .filters .active {
+	background-color: #1D6154;
+	color: white;
+  }
+  
   
