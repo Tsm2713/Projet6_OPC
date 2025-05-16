@@ -189,7 +189,7 @@ nav li {
 }
 
 li:hover {
-	color: #B1663C;
+	font-weight: 700;
 }
 
 #introduction {
@@ -395,8 +395,7 @@ footer nav ul li {
 	text-decoration: none;
   }
   
-  a:hover {
-	text-decoration: underline; 
+  .send:hover {
+	background-color: #0E2F28;
   }
-  
   
