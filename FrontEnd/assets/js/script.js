@@ -7,12 +7,8 @@ fetch("http://localhost:5678/api/works")
     filtersDiv.className = "filters";
     portfolio.insertBefore(filtersDiv, document.querySelector(".gallery"));
 
-    // 2. Création du bouton "Tous"
-    const btnTous = document.createElement("button");
-    btnTous.innerText = "Tous";
-    btnTous.dataset.category = "all";      // marque ce bouton comme filtre "all"
-    btnTous.classList.add("active");       // actif par défaut
-    filtersDiv.appendChild(btnTous);
+    // appelle fonction bouton tous
+    createAllButton(filtersDiv)
 
     // 3. Récupération des catégories uniques depuis works
     const categoriesSet = new Set();
@@ -29,7 +25,7 @@ fetch("http://localhost:5678/api/works")
       filtersDiv.appendChild(btn);
     });
 
-    // 5. Insérer les travaux dans la galerie comme déjà fait
+    // 5. Insérer les travaux dans la galerie comme déjà fait   InsertGallery
     const gallery = document.querySelector(".gallery");
     works.forEach(work => {
       const figure = document.createElement("figure");
@@ -74,3 +70,12 @@ fetch("http://localhost:5678/api/works")
     });
   })
   .catch(err => console.error("Erreur lors de la récupération des works :", err));
+
+// Création du bouton "Tous"
+function createAllButton(filtersDiv) {
+  const btnTous = document.createElement("button");
+  btnTous.innerText = "Tous";
+  btnTous.dataset.category = "all";      // marque ce bouton comme filtre "all"
+  btnTous.classList.add("active");       // actif par défaut
+  filtersDiv.appendChild(btnTous);
+}
