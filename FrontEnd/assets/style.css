@@ -407,3 +407,16 @@ a {
 .send:hover {
 	background-color: #0E2F28;
 }
+
+#admin-banner {
+	top: 0;
+	width: 125%;
+	background-color: black;
+	color: white;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	padding-left: 20px;
+	z-index: 1000;
+	margin-left: -50px;
+}

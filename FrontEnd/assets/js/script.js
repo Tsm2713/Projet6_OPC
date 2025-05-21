@@ -7,7 +7,7 @@ fetch("http://localhost:5678/api/works")
     filtersDiv.className = "filters";
     portfolio.insertBefore(filtersDiv, document.querySelector(".gallery"));
 
-    // appelle fonction bouton tous
+    // appelle fonction bouton Tous (le bouton)
     createAllButton(filtersDiv)
 
     // 3. Récupération des catégories uniques depuis works
@@ -42,7 +42,7 @@ fetch("http://localhost:5678/api/works")
       }
       gallery.appendChild(figure);
     });
-
+    if (localStorage.getItem('token')) {
     // 6. Gestionnaires d’événement pour chaque bouton de filtre
     const filterButtons = document.querySelectorAll(".filters button");
     filterButtons.forEach(button => {
@@ -67,7 +67,9 @@ fetch("http://localhost:5678/api/works")
           }
         });
       });
+
     });
+  }
   })
   .catch(err => console.error("Erreur lors de la récupération des works :", err));
 
@@ -79,3 +81,17 @@ function createAllButton(filtersDiv) {
   btnTous.classList.add("active");       // actif par défaut
   filtersDiv.appendChild(btnTous);
 }
+
+  
+
+if (localStorage.getItem('token')) {
+  // Création de la bannière admin
+  const banner = document.querySelector(".banner");
+  banner.id = 'admin-banner';                        
+  banner.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> Mode édition';
+
+    const filterButtons = document.getElementById("filters");
+
+  filterButtons.remove()
+}
+

@@ -56,3 +56,4 @@ function displayError(message) {
   errorElement.innerText = message;
   errorElement.style.display = 'block';
 }
+
