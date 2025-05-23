@@ -373,7 +373,7 @@ footer nav ul li {
 	display: flex;
 	justify-content: center;
 	gap: 10px;
-	margin-bottom: 30px;
+	margin-bottom: 50px;
 	flex-wrap: wrap;
 }
 
@@ -409,14 +409,139 @@ a {
 }
 
 #admin-banner {
-	top: 0;
-	width: 125%;
+	width: 1450px;
 	background-color: black;
 	color: white;
 	height: 50px;
 	display: flex;
-	align-items: center;
+	justify-content: center;
+	align-items: center;     
 	padding-left: 20px;
-	z-index: 1000;
-	margin-left: -50px;
-}
+	margin-left: -165px;
+	gap: 10px;
+  }
+
+.portfolio-title-row {
+	display: flex;
+	align-items: baseline;
+	justify-content: center;
+	gap: 25px;
+	margin-bottom: 20px;
+  }
+  
+  #edit-projects-btn {
+	font-family: 'Work Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	background: none;
+	border: none;
+	cursor: pointer;
+	position: relative;
+	bottom: 5px;
+	align-items: baseline;
+	gap: 10px;
+  }
+  
+  #edit-projects-btn i {
+	font-size: 16px;
+  }
+
+  .modal-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.3);
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	overflow-y: auto;
+  }
+  
+  .modal-content {
+	background: white;
+	border-radius: 10px;
+	width: 630px;
+	height: 688px;
+	margin-top: 60px;      
+	margin-bottom: 40px;
+	padding: 40px 45px 30px 45px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  }
+  
+  .close-modal {
+	position: absolute;
+	top: 30px;
+	right: 35px;
+	background: none;
+	border: none;
+	font-size: 30px;
+	display: flex;
+	cursor: pointer;
+  }
+  
+  .modal-title {
+	font-size: 26px;
+	font-weight: 400;
+	text-align: center;
+	margin: 30px 0 32px 0;
+  }
+  
+  .modal-separator {
+	border: none;
+	border-top: 1px solid #B3B3B3;
+	width: 75%;
+	margin: 67px 0 28px 0;
+  }
+  
+  .add-photo {
+	background: #1D6154;
+	color: white;
+	font-family: 'Syne', Arial, sans-serif;
+	font-size: 16px;
+	border: none;
+	border-radius: 60px;
+	width: 45%;
+	height: 40px;
+	align-items: center;
+	cursor: pointer;
+	margin-top: 13px;
+  }
+  
+  .add-photo:hover {
+	background: #0E2F28;
+  }
+  
+  
+  .modal-gallery {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 29px 9px;
+	justify-items: center;
+	margin-top: 30px;
+  }
+  
+  .modal-gallery figure {
+	width: 85px;   
+  }
+  
+  .modal-gallery img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+  }
+  
+  .trash-icon {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	font-size: 15px;
+	color: white;
+	background: black;
+	border-radius: 2px;
+	padding: 5px 5px;
+	cursor: pointer;
+  }
+
+  
