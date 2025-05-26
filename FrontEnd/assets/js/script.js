@@ -22,6 +22,8 @@ fetch("http://localhost:5678/api/works")
       btn.dataset.category = catName;  // on stocke le nom de la catégorie dans le bouton
       filtersDiv.appendChild(btn);
     });
+
+    createFiltersButtons();
     // 5. Insérer les travaux dans la galerie comme déjà fait   InsertGallery
      
     displayGalery(works)

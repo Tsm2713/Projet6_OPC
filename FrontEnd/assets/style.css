@@ -440,6 +440,7 @@ a {
 	bottom: 5px;
 	align-items: baseline;
 	gap: 10px;
+	margin-bottom: 50px;
   }
   
   #edit-projects-btn i {
