@@ -496,6 +496,12 @@ a {
 	margin: 67px 0 28px 0;
   }
   
+  .modal-separator2{
+	border: none;
+	border-top: 1px solid #B3B3B3;
+	width: 75%;
+	margin: 67px 0 28px 0;
+  }
   .add-photo {
 	background: #1D6154;
 	color: white;
@@ -544,5 +550,140 @@ a {
 	padding: 5px 5px;
 	cursor: pointer;
   }
+
+  /* Zone de téléchargement de l’image */
+.image-upload {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;              /* Prend toute la largeur disponible dans la modale */
+	height: 170px;            /* Hauteur de l’encadré (ajustez selon la maquette) */
+	background-color: #EDF2F5;/* Fond gris clair bleuté (d’après la maquette) */
+	border-radius: 4px;       /* Coins arrondis */
+	cursor: pointer;          /* Le curseur “main” indique que c’est cliquable */
+	margin-bottom: 20px;      /* Espacement sous l’encadré */
+	position: relative;
+  }
+  
+  /* Icône image par défaut */
+  .image-upload .placeholder-icon {
+	font-size: 60px;          /* Taille de l’icône image */
+	color: #B3B3B3;           /* Couleur grisée de l’icône */
+	margin-bottom: 10px;
+  }
+  
+  /* Bouton + Ajouter photo à l’intérieur de l’encadré */
+  .image-upload-btn {
+	display: inline-block;
+	background-color: #D8D8D8; /* Fond gris moyen pour le bouton */
+	color: #6F6F6F;            /* Texte gris foncé */
+	font-size: 14px;
+	font-family: 'Work Sans', sans-serif;
+	padding: 8px 16px;
+	border-radius: 30px;
+	margin-bottom: 5px;
+  }
+  
+  /* Texte d’information sur les formats */
+  .image-hint {
+	font-size: 12px;
+	color: #7D7D7D;
+	font-family: 'Work Sans', sans-serif;
+	margin: 0;  /* Pas de marge supplémentaire */
+  }
+
+  /* Conteneur du formulaire dans la modale */
+.modal-add-container {
+	width: 100%; /* Le formulaire occupe la largeur de la modale (zone de contenu) */
+  }
+  
+  /* Labels des champs de formulaire */
+  .modal-add-container form label {
+	display: block;
+	width: 100%;
+	max-width: 400px;            /* Largeur max des champs alignée sur la maquette */
+	margin: 15px auto 5px auto;  /* Espacement : ex. 15px au-dessus, 5px en dessous */
+	font-family: 'Work Sans', sans-serif;
+	font-size: 0.95em;
+	font-weight: 600;
+	color: #374048;              /* Texte gris foncé pour les labels */
+	text-align: left;
+  }
+  
+  /* Champs de texte et select */
+  .modal-add-container form input[type="text"],
+  .modal-add-container form select {
+	width: 100%;
+	max-width: 400px;
+	height: 50px;
+	padding: 0 15px;
+	font-size: 1em;
+	font-family: 'Work Sans', sans-serif;
+	color: #2C2C2C;
+	background: #FFFFFF;
+	border: none;
+	border-radius: 4px;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1); /* Légère ombre pour l’effet encadré */
+	margin-bottom: 20px;
+  }
+  
+  /* Style du placeholder (optionnel, pour différencier en italique/gris clair) */
+  .modal-add-container form input::placeholder {
+	color: #AAA;
+	font-style: italic;
+  }
+  .modal-add-container form select:disabled {
+	color: #AAA;
+  }
+
+  .submit-btn {
+	font-family: 'Syne', sans-serif;
+	font-weight: 700;
+	font-size: 16px;
+	border: none;
+	border-radius: 60px;
+	width: 200px;
+	padding: 12px 0;
+	text-align: center;
+	margin: 30px auto 0 auto;  /* centré horizontalement, avec marge en haut */
+	cursor: pointer;
+	transition: background-color 0.3s;
+  }
+  
+  /* État désactivé */
+  .submit-btn:disabled {
+	background-color: #C0C0C0; /* Gris pâle lorsque le formulaire est incomplet */
+	color: #FFFFFF;
+	cursor: default;
+	opacity: 0.6;             /* Légère transparence pour indiquer l’état inactif */
+  }
+  
+  /* État actif (hover non nécessaire si déjà géré globalement) */
+  .submit-btn:not(:disabled) {
+	background-color: #1D6154; /* Vert foncé (couleur de l’identité Sophie Bluel) */
+	color: #FFFFFF;
+  }
+  .submit-btn:not(:disabled):hover {
+	background-color: #174A3E; /* Vert légèrement plus sombre au survol */
+  }
+
+  .image-preview {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover;  /* Recadre l’image si nécessaire pour couvrir tout l’espace */
+	border-radius: 4px; /* Même arrondi que le conteneur */
+  }
+
+  .back-button {
+	position: absolute;
+	top: 30px;
+	left: 45px;
+	background: none;
+	border: none;
+	font-size: 24px;
+	cursor: pointer;
+  }
+  
 
   

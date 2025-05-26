@@ -39,8 +39,6 @@ if (localStorage.getItem('token')) {
    if (editBtn) {
        // Appliquer les styles pour rendre le bouton visible
        editBtn.style.display = "inline-flex";
-       // (Optionnel) Ajouter des classes CSS supplémentaires si nécessaire pour le style du bouton
-
        // Gérer le clic sur le bouton pour ouvrir la modale d'édition
        editBtn.addEventListener("click", () => {
            // Appeler la fonction d'ouverture de la modale (définie dans modal.js)
@@ -60,11 +58,11 @@ function createAllButton(filtersDiv) {
 }
   
 function createFiltersButtons(){
-      // 6. Gestionnaires d'événement pour chaque bouton de filtre
+      //Gestionnaires d'événement pour chaque bouton de filtre
     const filterButtons = document.querySelectorAll(".filters button");
     filterButtons.forEach(button => {
       button.addEventListener("click", () => {
-        // Mettre à jour l'état actif du bouton (optionnel)
+        // Mise à jour de l'état actif du bouton
         filterButtons.forEach(btn => btn.classList.remove("active"));
         button.classList.add("active");
         const selectedCategory = button.dataset.category;
