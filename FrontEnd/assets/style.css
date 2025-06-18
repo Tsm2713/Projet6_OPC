@@ -1,8 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 */
 html,
 body,
 div,
@@ -68,9 +64,8 @@ article,
 aside,
 canvas,
 details,
-embed,
-figure,
 figcaption,
+figure,
 footer,
 header,
 hgroup,
@@ -107,8 +102,20 @@ section {
 	display: block;
 }
 
+main {
+	max-width: 1140px;
+
+	margin: auto;
+	
+	
+
+}
+
 body {
 	line-height: 1;
+	background-color: #F8F7F2;
+	font-family: 'Work Sans';
+	font-size: 14px;
 }
 
 ol,
@@ -135,22 +142,16 @@ table {
 }
 
 /** end reset css**/
-body {
-	max-width: 1140px;
-	margin: auto;
-	font-family: 'Work Sans';
-	font-size: 14px;
-	background-color: #F8F7F2;
-}
+
 
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+	margin: 50px 0;
 }
 
 section {
-	margin: 50px 0
+	margin: 50px 0;
 }
 
 h1 {
@@ -159,28 +160,26 @@ h1 {
 	font-family: 'Syne';
 	font-size: 22px;
 	font-weight: 800;
-	color: #B1663C
+	color: #B1663C;
 }
 
 h1>span {
 	font-family: 'Work Sans';
 	font-size: 10px;
 	letter-spacing: 0.1em;
-	;
 }
 
 h2 {
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
-	color: #1D6154
+	color: #1D6154;
 }
 
 nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
-
 }
 
 nav li {
@@ -198,7 +197,7 @@ li:hover {
 }
 
 #introduction figure {
-	flex: 1
+	flex: 1;
 }
 
 #introduction img {
@@ -208,7 +207,7 @@ li:hover {
 }
 
 #introduction article {
-	flex: 1
+	flex: 1;
 }
 
 #introduction h2 {
@@ -234,7 +233,6 @@ li:hover {
 
 .gallery img {
 	width: 100%;
-
 }
 
 #contact {
@@ -244,7 +242,6 @@ li:hover {
 
 #contact>* {
 	text-align: center;
-
 }
 
 #contact h2 {
@@ -291,8 +288,10 @@ footer {
 	box-shadow: none;
 	border-radius: 0;
 	width: 100vw;
-	margin-left: calc(-50vw + 50%); /*50vw = la moitié de la largeur totale de l’écran.*/
-	margin-right: calc(-50vw + 50%); /*50% = la moitié de l’élément parent (le body, qui est centré).*/
+	margin-left: calc(-50vw + 50%);
+	/*50vw = moitié de la largeur écran */
+	margin-right: calc(-50vw + 50%);
+	/*50% = moitié de l’élément parent (body centré) */
 }
 
 footer nav ul {
@@ -409,17 +408,15 @@ a {
 }
 
 #admin-banner {
-	width: 1450px;
+	width: 100%;
 	background-color: black;
 	color: white;
 	height: 50px;
 	display: flex;
 	justify-content: center;
-	align-items: center;     
-	padding-left: 20px;
-	margin-left: -165px;
+	align-items: center;
 	gap: 10px;
-  }
+}
 
 .portfolio-title-row {
 	display: flex;
@@ -427,9 +424,9 @@ a {
 	justify-content: center;
 	gap: 25px;
 	margin-bottom: 20px;
-  }
-  
-  #edit-projects-btn {
+}
+
+#edit-projects-btn {
 	font-family: 'Work Sans', sans-serif;
 	font-size: 14px;
 	font-weight: 400;
@@ -441,13 +438,13 @@ a {
 	align-items: baseline;
 	gap: 10px;
 	margin-bottom: 50px;
-  }
-  
-  #edit-projects-btn i {
-	font-size: 16px;
-  }
+}
 
-  .modal-overlay {
+#edit-projects-btn i {
+	font-size: 16px;
+}
+
+.modal-overlay {
 	position: fixed;
 	inset: 0;
 	background: rgba(0, 0, 0, 0.3);
@@ -455,23 +452,23 @@ a {
 	align-items: flex-start;
 	justify-content: center;
 	overflow-y: auto;
-  }
-  
-  .modal-content {
+}
+
+.modal-content {
 	background: white;
 	border-radius: 10px;
 	width: 630px;
 	height: 688px;
-	margin-top: 60px;      
+	margin-top: 60px;
 	margin-bottom: 40px;
 	padding: 40px 45px 30px 45px;
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-  }
-  
-  .close-modal {
+}
+
+.close-modal {
 	position: absolute;
 	top: 30px;
 	right: 35px;
@@ -480,29 +477,30 @@ a {
 	font-size: 30px;
 	display: flex;
 	cursor: pointer;
-  }
-  
-  .modal-title {
+}
+
+.modal-title {
 	font-size: 26px;
 	font-weight: 400;
 	text-align: center;
 	margin: 30px 0 32px 0;
-  }
-  
-  .modal-separator {
+}
+
+.modal-separator {
 	border: none;
 	border-top: 1px solid #B3B3B3;
 	width: 75%;
 	margin: 67px 0 28px 0;
-  }
-  
-  .modal-separator2{
+}
+
+.modal-separator2 {
 	border: none;
 	border-top: 1px solid #B3B3B3;
-	width: 75%;
-	margin: 67px 0 28px 0;
-  }
-  .add-photo {
+	width: 70%;
+	margin-top: 47px;
+}
+
+.add-photo {
 	background: #1D6154;
 	color: white;
 	font-family: 'Syne', Arial, sans-serif;
@@ -514,32 +512,31 @@ a {
 	align-items: center;
 	cursor: pointer;
 	margin-top: 13px;
-  }
-  
-  .add-photo:hover {
+}
+
+.add-photo:hover {
 	background: #0E2F28;
-  }
-  
-  
-  .modal-gallery {
+}
+
+.modal-gallery {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	gap: 29px 9px;
 	justify-items: center;
 	margin-top: 30px;
-  }
-  
-  .modal-gallery figure {
-	width: 85px;   
-  }
-  
-  .modal-gallery img {
+}
+
+.modal-gallery figure {
+	width: 85px;
+}
+
+.modal-gallery img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-  }
-  
-  .trash-icon {
+}
+
+.trash-icon {
 	position: absolute;
 	top: 8px;
 	right: 8px;
@@ -549,141 +546,182 @@ a {
 	border-radius: 2px;
 	padding: 5px 5px;
 	cursor: pointer;
-  }
+}
 
-  /* Zone de téléchargement de l’image */
+/* Zone de téléchargement de l’image */
 .image-upload {
+	height: 170px;
+	background-color: #E8F1F6;
+	border-radius: 4px;
+	margin: 0 auto 30px auto;
+	width: 70%;
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 100%;              /* Prend toute la largeur disponible dans la modale */
-	height: 170px;            /* Hauteur de l’encadré (ajustez selon la maquette) */
-	background-color: #EDF2F5;/* Fond gris clair bleuté (d’après la maquette) */
-	border-radius: 4px;       /* Coins arrondis */
-	cursor: pointer;          /* Le curseur “main” indique que c’est cliquable */
-	margin-bottom: 20px;      /* Espacement sous l’encadré */
-	position: relative;
-  }
-  
-  /* Icône image par défaut */
-  .image-upload .placeholder-icon {
-	font-size: 60px;          /* Taille de l’icône image */
-	color: #B3B3B3;           /* Couleur grisée de l’icône */
+}
+
+/* Icône image par défaut */
+.image-upload .placeholder-icon {
+	font-size: 50px;
+	color: #B3B3B3;
 	margin-bottom: 10px;
-  }
-  
-  /* Bouton + Ajouter photo à l’intérieur de l’encadré */
-  .image-upload-btn {
-	display: inline-block;
-	background-color: #D8D8D8; /* Fond gris moyen pour le bouton */
-	color: #6F6F6F;            /* Texte gris foncé */
+	justify-content: center;
+	display: flex;
+}
+
+/* Bouton + Ajouter photo à l’intérieur de l’encadré */
+.image-upload-btn {
+	background-color: #D8D8D8;
+	color: #6F6F6F;
 	font-size: 14px;
 	font-family: 'Work Sans', sans-serif;
 	padding: 8px 16px;
 	border-radius: 30px;
 	margin-bottom: 5px;
-  }
-  
-  /* Texte d’information sur les formats */
-  .image-hint {
+	display: flex;
+}
+
+/* Texte d’information sur les formats */
+.image-hint {
 	font-size: 12px;
 	color: #7D7D7D;
+	margin-top: 0;
+	margin-bottom: 5px;
 	font-family: 'Work Sans', sans-serif;
-	margin: 0;  /* Pas de marge supplémentaire */
-  }
+	justify-content: center;
+	display: flex;
+}
 
-  /* Conteneur du formulaire dans la modale */
+/* Conteneur du formulaire dans la modale */
 .modal-add-container {
-	width: 100%; /* Le formulaire occupe la largeur de la modale (zone de contenu) */
-  }
-  
-  /* Labels des champs de formulaire */
-  .modal-add-container form label {
-	display: block;
 	width: 100%;
-	max-width: 400px;            /* Largeur max des champs alignée sur la maquette */
-	margin: 15px auto 5px auto;  /* Espacement : ex. 15px au-dessus, 5px en dessous */
-	font-family: 'Work Sans', sans-serif;
-	font-size: 0.95em;
-	font-weight: 600;
-	color: #374048;              /* Texte gris foncé pour les labels */
-	text-align: left;
-  }
-  
-  /* Champs de texte et select */
-  .modal-add-container form input[type="text"],
-  .modal-add-container form select {
-	width: 100%;
-	max-width: 400px;
-	height: 50px;
+	/* Le formulaire occupe toute la largeur de la zone de contenu */
+}
+
+/* Labels des champs de formulaire */
+
+/* Champs de texte et select */
+.modal-add-container form input[type="text"] {
 	padding: 0 15px;
 	font-size: 1em;
 	font-family: 'Work Sans', sans-serif;
 	color: #2C2C2C;
 	background: #FFFFFF;
-	border: none;
+	border: 1px solid #B3B3B3;
+	/* Bordure gris clair */
 	border-radius: 4px;
-	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1); /* Légère ombre pour l’effet encadré */
-	margin-bottom: 20px;
-  }
-  
-  /* Style du placeholder (optionnel, pour différencier en italique/gris clair) */
-  .modal-add-container form input::placeholder {
+	box-shadow: none;
+	width: 65%;
+	/* largeur exacte Figma */
+	height: 51px;
+	/* hauteur exacte Figma */
+	margin: 0 auto 20px auto;
+	/* centré */
+	display: block;
+}
+
+.modal-add-container form select {
+	padding: 0 15px;
+	font-size: 1em;
+	font-family: 'Work Sans', sans-serif;
+	color: #2C2C2C;
+	background: #FFFFFF;
+	border: 1px solid #B3B3B3;
+	/* Bordure gris clair */
+	border-radius: 4px;
+	box-shadow: none;
+	width: 70%;
+	/* largeur exacte Figma */
+	height: 51px;
+	/* hauteur exacte Figma */
+	margin: 0 auto 20px auto;
+	/* centré */
+	display: block;
+}
+
+/* Style du placeholder */
+.modal-add-container form input::placeholder {
 	color: #AAA;
 	font-style: italic;
-  }
-  .modal-add-container form select:disabled {
-	color: #AAA;
-  }
+}
 
-  .submit-btn {
+.modal-add-container form select:disabled {
+	color: #AAA;
+}
+
+.submit-btn {
 	font-family: 'Syne', sans-serif;
-	font-weight: 700;
 	font-size: 16px;
 	border: none;
 	border-radius: 60px;
-	width: 200px;
+	width: 420px;
+	/* largeur alignée sur les champs du formulaire */
 	padding: 12px 0;
 	text-align: center;
-	margin: 30px auto 0 auto;  /* centré horizontalement, avec marge en haut */
 	cursor: pointer;
 	transition: background-color 0.3s;
-  }
-  
-  /* État désactivé */
-  .submit-btn:disabled {
-	background-color: #C0C0C0; /* Gris pâle lorsque le formulaire est incomplet */
+	margin-top: 32px;
+}
+
+/* État désactivé */
+.submit-btn:disabled {
+	background-color: #C0C0C0;
+	/* Gris pâle lorsque le formulaire est incomplet */
 	color: #FFFFFF;
 	cursor: default;
-	opacity: 0.6;             /* Légère transparence pour indiquer l’état inactif */
-  }
-  
-  /* État actif (hover non nécessaire si déjà géré globalement) */
-  .submit-btn:not(:disabled) {
-	background-color: #1D6154; /* Vert foncé (couleur de l’identité Sophie Bluel) */
-	color: #FFFFFF;
-  }
-  .submit-btn:not(:disabled):hover {
-	background-color: #174A3E; /* Vert légèrement plus sombre au survol */
-  }
+	opacity: 0.6;
+	/* Légère transparence pour indiquer l’état inactif */
+}
 
-  .image-preview {
+/* État actif */
+.submit-btn:not(:disabled) {
+	background-color: #1D6154;
+	/* Vert foncé (couleur identité Sophie Bluel) */
+	color: #FFFFFF;
+}
+
+.submit-btn:not(:disabled):hover {
+	background-color: #174A3E;
+}
+
+.image-preview {
 	max-width: 100%;
 	max-height: 100%;
-	object-fit: cover;  /* Recadre l’image si nécessaire pour couvrir tout l’espace */
-	border-radius: 4px; /* Même arrondi que le conteneur */
-  }
+	object-fit: cover;
+	border-radius: 4px;
+}
 
-  .back-button {
+.back-button {
 	position: absolute;
-	top: 30px;
 	left: 45px;
 	background: none;
 	border: none;
 	font-size: 24px;
 	cursor: pointer;
-  }
-  
+}
 
-  
+#photo-input {
+	flex-direction: column;
+	display: flex;
+	align-items: center;
+}
+
+.form-label {
+	display: flex;
+	width: 70%;
+	margin: 15px auto 5px auto;
+	/* Espacement : 15px au-dessus, 5px en dessous */
+	font-family: 'Work Sans', sans-serif;
+	font-size: 0.95em;
+	font-weight: 600;
+	color: #374048;
+	/* Texte gris foncé pour les labels */
+	flex-direction: column;
+}
+
+#add-work-form {
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
