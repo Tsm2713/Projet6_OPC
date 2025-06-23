@@ -150,6 +150,11 @@ header {
 	margin: 50px 0;
 }
 
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
 section {
 	margin: 50px 0;
 }
