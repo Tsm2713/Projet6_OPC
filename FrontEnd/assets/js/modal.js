@@ -1,4 +1,3 @@
-// Initialisation
 document.addEventListener("DOMContentLoaded", () => {
     const editBtn = document.getElementById("edit-projects-btn");
     if (editBtn) {
@@ -6,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-//ouverture modal
 function openModal() {
     closeModal();
 
@@ -99,7 +97,6 @@ function closeModal() {
     if (overlay) overlay.remove();
 }
 
-//recharger la page principal des un ajout ou suppresion
 function updateMainGallery() {
     fetch("http://localhost:5678/api/works")
         .then(res => res.json())
@@ -171,9 +168,7 @@ function handleDelete(workId, figure, galleryContainer) {
 }
 
 function showAddPhotoForm({ modal, title, galleryContainer, hr, addBtn, backBtn }) {
-    // Cette fonction peut être modularisée aussi en composants si besoin.
-    // Par souci de clarté, elle est gardée comme telle ici.
-    // === FORMULAIRE D’AJOUT DE PHOTO ===
+
     const formContainer = document.createElement('div');
     formContainer.className = 'modal-add-container';
     modal.appendChild(formContainer);
