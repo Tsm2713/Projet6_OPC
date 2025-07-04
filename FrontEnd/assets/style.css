@@ -1,3 +1,4 @@
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 */
 html,
 body,
 div,
@@ -86,6 +87,7 @@ video {
 	vertical-align: baseline;
 }
 
+/* HTML5 display-role reset for older browsers */
 article,
 aside,
 details,
@@ -102,7 +104,11 @@ section {
 
 main {
 	max-width: 1140px;
+
 	margin: auto;
+	
+	
+
 }
 
 body {
@@ -135,6 +141,9 @@ table {
 	border-spacing: 0;
 }
 
+/** end reset css**/
+
+
 header {
 	display: flex;
 	justify-content: space-between;
@@ -146,7 +155,6 @@ header {
 	bottom: 0;
 	width: 100%;
 }
-
 section {
 	margin: 50px 0;
 }
@@ -286,7 +294,9 @@ footer {
 	border-radius: 0;
 	width: 100vw;
 	margin-left: calc(-50vw + 50%);
+	/*50vw = moitié de la largeur écran */
 	margin-right: calc(-50vw + 50%);
+	/*50% = moitié de l’élément parent (body centré) */
 }
 
 footer nav ul {
@@ -300,6 +310,7 @@ footer nav ul li {
 	font-size: 14px;
 }
 
+/* --- LOGIN SECTION --- */
 #login {
 	text-align: center;
 	margin: 100px 0;
@@ -542,6 +553,7 @@ a {
 	cursor: pointer;
 }
 
+/* Zone de téléchargement de l’image */
 .image-upload {
 	height: 170px;
 	background-color: #E8F1F6;
@@ -553,6 +565,7 @@ a {
 	align-items: center;
 }
 
+/* Icône image par défaut */
 .image-upload .placeholder-icon {
 	font-size: 50px;
 	color: #B3B3B3;
@@ -561,6 +574,7 @@ a {
 	display: flex;
 }
 
+/* Bouton + Ajouter photo à l’intérieur de l’encadré */
 .image-upload-btn {
 	background-color: #D8D8D8;
 	color: #6F6F6F;
@@ -572,6 +586,7 @@ a {
 	display: flex;
 }
 
+/* Texte d’information sur les formats */
 .image-hint {
 	font-size: 12px;
 	color: #7D7D7D;
@@ -582,10 +597,15 @@ a {
 	display: flex;
 }
 
+/* Conteneur du formulaire dans la modale */
 .modal-add-container {
 	width: 100%;
+	/* Le formulaire occupe toute la largeur de la zone de contenu */
 }
 
+/* Labels des champs de formulaire */
+
+/* Champs de texte et select */
 .modal-add-container form input[type="text"] {
 	padding: 0 15px;
 	font-size: 1em;
@@ -593,11 +613,15 @@ a {
 	color: #2C2C2C;
 	background: #FFFFFF;
 	border: 1px solid #B3B3B3;
+	/* Bordure gris clair */
 	border-radius: 4px;
 	box-shadow: none;
 	width: 65%;
+	/* largeur exacte Figma */
 	height: 51px;
+	/* hauteur exacte Figma */
 	margin: 0 auto 20px auto;
+	/* centré */
 	display: block;
 }
 
@@ -608,14 +632,19 @@ a {
 	color: #2C2C2C;
 	background: #FFFFFF;
 	border: 1px solid #B3B3B3;
+	/* Bordure gris clair */
 	border-radius: 4px;
 	box-shadow: none;
 	width: 70%;
+	/* largeur exacte Figma */
 	height: 51px;
+	/* hauteur exacte Figma */
 	margin: 0 auto 20px auto;
+	/* centré */
 	display: block;
 }
 
+/* Style du placeholder */
 .modal-add-container form input::placeholder {
 	color: #AAA;
 	font-style: italic;
@@ -631,6 +660,7 @@ a {
 	border: none;
 	border-radius: 60px;
 	width: 420px;
+	/* largeur alignée sur les champs du formulaire */
 	padding: 12px 0;
 	text-align: center;
 	cursor: pointer;
@@ -638,15 +668,20 @@ a {
 	margin-top: 32px;
 }
 
+/* État désactivé */
 .submit-btn:disabled {
 	background-color: #C0C0C0;
+	/* Gris pâle lorsque le formulaire est incomplet */
 	color: #FFFFFF;
 	cursor: default;
 	opacity: 0.6;
+	/* Légère transparence pour indiquer l’état inactif */
 }
 
+/* État actif */
 .submit-btn:not(:disabled) {
 	background-color: #1D6154;
+	/* Vert foncé (couleur identité Sophie Bluel) */
 	color: #FFFFFF;
 }
 
@@ -680,10 +715,12 @@ a {
 	display: flex;
 	width: 70%;
 	margin: 15px auto 5px auto;
+	/* Espacement : 15px au-dessus, 5px en dessous */
 	font-family: 'Work Sans', sans-serif;
 	font-size: 0.95em;
 	font-weight: 600;
 	color: #374048;
+	/* Texte gris foncé pour les labels */
 	flex-direction: column;
 }
 

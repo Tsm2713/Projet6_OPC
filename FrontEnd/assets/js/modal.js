@@ -1,3 +1,4 @@
+// initialisation avec une attente pour que le dom sois bien charger avec l'appel à la fonction pour ouvir la modal au click sur modifier
 document.addEventListener("DOMContentLoaded", () => {
     const editBtn = document.getElementById("edit-projects-btn");
     if (editBtn) {
@@ -5,12 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+//ouverture modal
 function openModal() {
-    closeModal();
+    closeModal(); //au cas où celle ci est déjà ouverte
 
+    //creer le conteneur ainsi que le fond de couleur
     const overlay = createOverlay();
     const modal = createModalContent();
 
+    //creer tout les élements de la modal 
     const closeBtn = createCloseButton(() => closeModal());
     const backBtn = createBackButton();
     const title = createTitle("Galerie photo");
@@ -18,11 +22,12 @@ function openModal() {
     const hr = createSeparator();
     const addBtn = createAddButton();
 
+    //ajoute ces elements dans la modal
     modal.append(closeBtn, backBtn, title, galleryContainer, hr, addBtn);
     overlay.appendChild(modal);
     document.body.appendChild(overlay);
 
-    loadModalGallery(galleryContainer);
+    loadModalGallery(galleryContainer); //charge les photos dans la modale avec l'ajout de 
 
     addBtn.addEventListener("click", () => {
         title.innerText = "Ajout photo";
@@ -36,6 +41,7 @@ function openModal() {
     });
 }
 
+//fonction de creation d'element
 function createOverlay() {
     const overlay = document.createElement('div');
     overlay.className = 'modal-overlay';
@@ -92,11 +98,13 @@ function createAddButton() {
     return btn;
 }
 
+//fonction fermeture modal
 function closeModal() {
     const overlay = document.querySelector('.modal-overlay');
     if (overlay) overlay.remove();
 }
 
+//recharger la page principal des un ajout ou suppresion
 function updateMainGallery() {
     fetch("http://localhost:5678/api/works")
         .then(res => res.json())
@@ -168,29 +176,33 @@ function handleDelete(workId, figure, galleryContainer) {
 }
 
 function showAddPhotoForm({ modal, title, galleryContainer, hr, addBtn, backBtn }) {
-
+    // Création du conteneur du formulaire dans la modale
     const formContainer = document.createElement('div');
     formContainer.className = 'modal-add-container';
     modal.appendChild(formContainer);
 
+    // Création de l'élément formulaire
     const form = document.createElement('form');
     form.id = 'add-work-form';
     formContainer.appendChild(form);
 
+    // Création de la zone pour le chargement de l'image
     const imageUpload = document.createElement('div');
     imageUpload.className = 'image-upload';
 
+    // Création de l'input pour sélectionner un fichier image
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
-    fileInput.accept = 'image/*';
+    fileInput.accept = 'image/*';          // N'accepte que les images
     fileInput.id = 'photo-input';
     fileInput.name = 'image';
-    fileInput.style.display = 'none';
+    fileInput.style.display = 'none';      // Caché pour être stylisé autrement
 
+    // Création du label stylisé qui remplace l'input
     const imageLabel = document.createElement('label');
     imageLabel.setAttribute('for', 'photo-input');
 
-    const icon = document.createElement('i');
+    const icon = document.createElement('i');         // Icône d'image
     icon.className = 'fa-solid fa-image placeholder-icon';
     imageLabel.appendChild(icon);
 
@@ -204,27 +216,33 @@ function showAddPhotoForm({ modal, title, galleryContainer, hr, addBtn, backBtn 
     infoText.innerText = 'jpg, png : 4mo max';
     imageLabel.appendChild(infoText);
 
+    // Ajout du label et de l’input dans le bloc imageUpload
     imageUpload.appendChild(imageLabel);
     imageUpload.appendChild(fileInput);
     form.appendChild(imageUpload);
 
+    // Création du champ titre
     const titleLabel = document.createElement('label');
     titleLabel.innerText = 'Titre';
     titleLabel.className = 'form-label';
     form.appendChild(titleLabel);
+
     const titleInput = document.createElement('input');
     titleInput.type = 'text';
     titleInput.name = 'title';
     form.appendChild(titleInput);
 
+    // Création du champ de sélection de catégorie
     const catLabel = document.createElement('label');
     catLabel.innerText = 'Catégorie';
     catLabel.className = 'form-label';
     form.appendChild(catLabel);
+
     const catSelect = document.createElement('select');
     catSelect.name = 'category';
     form.appendChild(catSelect);
 
+    // Ajout d'une option par défaut
     const defaultOption = document.createElement('option');
     defaultOption.value = '';
     defaultOption.textContent = 'Choisir une catégorie';
@@ -232,6 +250,7 @@ function showAddPhotoForm({ modal, title, galleryContainer, hr, addBtn, backBtn 
     defaultOption.selected = true;
     catSelect.appendChild(defaultOption);
 
+    // Chargement dynamique des catégories depuis l’API
     fetch('http://localhost:5678/api/categories')
         .then(res => res.json())
         .then(categories => {
@@ -243,56 +262,64 @@ function showAddPhotoForm({ modal, title, galleryContainer, hr, addBtn, backBtn 
             });
         });
 
+    // Ajout d'un séparateur visuel
     const hr2 = document.createElement('hr');
     hr2.className = 'modal-separator2';
     form.appendChild(hr2);
 
+    // Création du bouton de validation
     const submitBtn = document.createElement('button');
     submitBtn.type = 'submit';
     submitBtn.innerText = 'Valider';
     submitBtn.className = 'submit-btn';
-    submitBtn.disabled = true;
+    submitBtn.disabled = true; // Désactivé par défaut tant que les champs ne sont pas remplis
     form.appendChild(submitBtn);
 
+    // Div pour afficher les erreurs si besoin
     const errorDiv = document.createElement('div');
     errorDiv.className = 'error-message';
     errorDiv.style.color = 'red';
     form.appendChild(errorDiv);
 
+    // Fonction pour activer le bouton submit seulement si tous les champs sont valides
     function updateSubmitState() {
         const valid = fileInput.files.length > 0 && titleInput.value.trim() && catSelect.value;
         submitBtn.disabled = !valid;
     }
 
+    // Gestion de la prévisualisation de l’image quand on sélectionne un fichier
     fileInput.addEventListener('change', function () {
         if (fileInput.files[0]) {
             const reader = new FileReader();
             reader.onload = function (e) {
-                imageUpload.innerHTML = '';
+                imageUpload.innerHTML = ''; // On vide la zone
                 const imgPreview = document.createElement('img');
-                imgPreview.src = e.target.result;
+                imgPreview.src = e.target.result; // On affiche l'image sélectionnée
                 imgPreview.className = 'image-preview';
                 imageUpload.appendChild(imgPreview);
-                imageUpload.appendChild(fileInput);
+                imageUpload.appendChild(fileInput); // On remet l’input pour permettre d'en changer
             };
-            reader.readAsDataURL(fileInput.files[0]);
+            reader.readAsDataURL(fileInput.files[0]); // Lit l’image en base64
         }
-        updateSubmitState();
+        updateSubmitState(); // Vérifie si les champs sont remplis
     });
 
+    // Écouteurs pour détecter les changements et activer le bouton si tout est rempli
     titleInput.addEventListener('input', updateSubmitState);
     catSelect.addEventListener('change', updateSubmitState);
 
+    // Soumission du formulaire
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        errorDiv.textContent = '';
+        errorDiv.textContent = ''; // Réinitialise les messages d’erreur
 
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('token'); // Récupère le token d’authentification
         if (!token) {
             alert("Vous devez être connecté pour ajouter un projet.");
             return;
         }
 
+        // Préparation des données à envoyer sous forme de FormData
         const formData = new FormData();
         formData.append('image', fileInput.files[0]);
         formData.append('title', titleInput.value.trim());
@@ -304,9 +331,12 @@ function showAddPhotoForm({ modal, title, galleryContainer, hr, addBtn, backBtn 
                 headers: { 'Authorization': `Bearer ${token}` },
                 body: formData
             });
-            if (!res.ok) throw new Error("Erreur lors de l'ajout du projet.");
-            await res.json();
 
+            if (!res.ok) throw new Error("Erreur lors de l'ajout du projet.");
+
+            await res.json(); // Réponse de l’API
+
+            // Nettoyage de la modale après succès
             form.reset();
             formContainer.remove();
             title.innerText = 'Galerie photo';
@@ -314,6 +344,8 @@ function showAddPhotoForm({ modal, title, galleryContainer, hr, addBtn, backBtn 
             hr.style.display = '';
             addBtn.style.display = '';
             backBtn.style.display = 'none';
+
+            // Recharge la galerie principale et celle de la modale
             updateMainGallery();
             loadModalGallery(galleryContainer);
         } catch (err) {
@@ -321,9 +353,10 @@ function showAddPhotoForm({ modal, title, galleryContainer, hr, addBtn, backBtn 
         }
     });
 
+    // Gestion du bouton "Retour" pour quitter le formulaire
     backBtn.addEventListener('click', () => {
-        formContainer.remove();
-        title.innerText = 'Galerie photo';
+        formContainer.remove(); // Supprime le formulaire
+        title.innerText = 'Galerie photo'; // Rechange le titre
         galleryContainer.style.display = '';
         hr.style.display = '';
         addBtn.style.display = '';
